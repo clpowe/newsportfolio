@@ -24,7 +24,7 @@
 				class="flex justify-between container border-b-2 border-gray-900 mt-4"
 			>
 				<div class="name uppercase font-bold">Christopher Powe</div>
-				<div class="fill-red-100">
+				<div class="fill-red-100 sm:hidden">
 					<Icon name="ic:baseline-menu" @click="toogleMenu" size="30" />
 				</div>
 			</div>
