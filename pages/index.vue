@@ -4,15 +4,19 @@
 		<div
 			class="sm:col-span-3 border-b-2 border-black flex justify-end gap-4 items-center"
 		>
-			<button class="bigtext font-bold uppercase">Design</button>
-			<button class="bigtext font-bold uppercase">Develop</button>
+			<button class="majortext font-bold uppercase">Design</button>
+			<button class="majortext font-bold uppercase">Develop</button>
 		</div>
-		<div class="justify-end sm:flex flex-col lg:row-start-2">
-			<div class="flex flex-col border-b-2 border-black">
-				<p class="font-bold uppercase text-3xl text-gray-900">Volume</p>
-				<p class="font-light text-5xl text-gray-900">NO.01</p>
+		<div
+			class="row-start-1 justify-between flex-row sm:justify-end flex sm:row-start-2 sm:flex-col lg:row-start-2"
+		>
+			<div
+				class="flex flex-row border-b-0 sm:flex-col sm:border-b-2 border-black"
+			>
+				<p class="font-bold uppercase sm:text-3xl text-gray-900">Volume</p>
+				<p class="font-light sm:text-5xl text-gray-900">NO.01</p>
 			</div>
-			<div>
+			<div class="flex flex-row sm:flex-col gap-2">
 				<p>Resume</p>
 				<p>Download</p>
 			</div>
@@ -121,16 +125,6 @@
 		projectsRef.value.scrollLeft = pos.left - dx
 	}
 
-	// function mouseDownHandler(e) {
-	// 	// How far the mouse has been moved
-	// 	const dx = e.clientX - pos.x
-	// 	const dy = e.clientY - pos.y
-
-	// 	// Scroll the element
-	// 	projectsRef.value.style.cursor = 'grabbing'
-	// 	projectsRef.value.style.userSelect = 'none'
-	// }
-
 	function mouseUpHandler() {
 		document.removeEventListener('mousemove', mouseMoveHandler)
 		document.removeEventListener('mouseup', mouseUpHandler)
@@ -151,7 +145,7 @@
 	}
 	main {
 		display: grid;
-		grid-template-rows: 5rem 60vh 1fr;
+		grid-template-rows: auto;
 		gap: 1rem;
 		transition: 300ms;
 	}
@@ -173,7 +167,7 @@
 	@media (min-width: 64rem) {
 		main {
 			display: grid;
-			grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+			grid-template-columns: 1fr 1fr 1fr 1fr 15rem;
 			grid-template-rows: 4rem 1fr;
 		}
 	}

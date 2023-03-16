@@ -21,7 +21,7 @@
 	<div class="parent" ref="parent">
 		<header>
 			<div
-				class="flex justify-between container sm:hidden border-b-2 border-gray-900"
+				class="flex justify-between container border-b-2 border-gray-900 mt-4"
 			>
 				<div class="name uppercase font-bold">Christopher Powe</div>
 				<div class="fill-red-100">
@@ -152,6 +152,12 @@
 	}
 
 	.bigtext {
+		font-family: 'Oswald';
+		font-size: var(--s3);
+		font-weight: bold;
+		text-transform: uppercase;
+	}
+	.majortext {
 		font-family: 'Oswald';
 		font-size: var(--s5);
 		font-weight: bold;
