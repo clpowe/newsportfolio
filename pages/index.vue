@@ -7,10 +7,10 @@
 			<button class="bigtext font-bold uppercase">Design</button>
 			<button class="bigtext font-bold uppercase">Develop</button>
 		</div>
-		<div class="hidden justify-end sm:flex flex-col lg:row-start-2">
+		<div class="justify-end sm:flex flex-col lg:row-start-2">
 			<div class="flex flex-col border-b-2 border-black">
-				<p>Volume</p>
-				<p>NO.01</p>
+				<p class="font-bold uppercase text-3xl text-gray-900">Volume</p>
+				<p class="font-light text-5xl text-gray-900">NO.01</p>
 			</div>
 			<div>
 				<p>Resume</p>
@@ -145,8 +145,8 @@
 		display: none;
 	}
 	.projects {
-		-ms-overflow-style: none; /* IE and Edge */
-		scrollbar-width: none; /* Firefox */
+		-ms-overflow-style: none;
+		scrollbar-width: none;
 		cursor: grab;
 	}
 	main {

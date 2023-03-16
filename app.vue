@@ -62,18 +62,13 @@
 		font-size: clamp(var(--s0), 0.95rem + 0.25vw, var(--s4));
 		font-family: 'Oswald', sans-serif;
 	}
-	// Modern CSS reset: https://github.com/hankchizljaw/modern-css-reset
 
-	/* Box sizing rules */
 	*,
 	*::before,
 	*::after {
 		box-sizing: border-box;
 	}
 
-	/* Remove default padding */
-
-	/* Remove all animations and transitions for people that prefer not to see them */
 	@media (prefers-reduced-motion: reduce) {
 		* {
 			animation-duration: 0.01ms !important;
