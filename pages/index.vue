@@ -4,8 +4,28 @@
 		<div
 			class="sm:col-span-3 border-b-2 border-black flex justify-end gap-4 items-center"
 		>
-			<button class="majortext font-bold uppercase">Design</button>
-			<button class="majortext font-bold uppercase">Develop</button>
+			<button
+				:class="{ active: design }"
+				class="majortext font-bold uppercase"
+				@click="
+					() => {
+						design = true
+					}
+				"
+			>
+				Design
+			</button>
+			<button
+				:class="{ active: !design }"
+				class="majortext font-bold uppercase"
+				@click="
+					() => {
+						design = false
+					}
+				"
+			>
+				Develop
+			</button>
 		</div>
 		<div
 			class="row-start-1 justify-between flex-row sm:justify-end flex sm:row-start-2 sm:flex-col lg:row-start-2"
@@ -26,11 +46,19 @@
 			ref="projectsRef"
 			class="projects overflow-scroll border-b-2 border-black pb-4 sm:border-l-2 sm:border-b-0 sm:pl-4 sm:col-span-2"
 		>
-			<ul class="list space-y-[var(--s1)]">
-				<li v-for="n in 3">
-					<ProjectCard />
-				</li>
-			</ul>
+			<TransitionGroup name="list">
+				<ul key="1" class="list space-y-[var(--s1)]" v-if="design">
+					<li v-for="n in 2">
+						<ProjectCard />
+					</li>
+				</ul>
+
+				<ul key="2" class="list space-y-[var(--s1)]" v-if="!design">
+					<li v-for="n in 3">
+						<ProjectCard />
+					</li>
+				</ul>
+			</TransitionGroup>
 		</article>
 		<section
 			class="flex gap-4 flex-col sm:flex-row sm:col-span-full sm:border-t-2 sm:border-black sm:pt-4 lg:flex-col lg:col-start-5 lg:row-start-1 lg:row-span-full lg:border-t-0 lg:border-l-2 lg:pl-4"
@@ -95,6 +123,8 @@
 
 <script setup lang="ts">
 	const showMenu = useState('showMenu')
+
+	const design = ref()
 
 	const projectsRef = ref()
 	let pos = { top: 0, left: 0, x: 0, y: 0 }
@@ -180,5 +210,27 @@
 			grid-template-columns: 1fr 1fr 1fr 1fr 15rem;
 			grid-template-rows: 4rem 1fr;
 		}
+	}
+
+	.active {
+		color: rgb(110, 110, 110);
+	}
+
+	.list-move, /* apply transition to moving elements */
+.list-enter-active,
+.list-leave-active {
+		transition: all 0.5s cubic-bezier(0.55, 0, 1, 0.45);
+	}
+
+	.list-enter-from,
+	.list-leave-to {
+		opacity: 0;
+		transform: translateX(100%);
+	}
+
+	/* ensure leaving items are taken out of layout flow so that moving
+   animations can be calculated correctly. */
+	.list-leave-active {
+		position: absolute;
 	}
 </style>
