@@ -1,5 +1,5 @@
 <template>
-	<main class="container">
+	<main class="container items-stretch">
 		<Menu />
 		<div
 			class="sm:col-span-3 border-b-2 border-black flex justify-end gap-4 items-center"
@@ -24,10 +24,10 @@
 		<article
 			@mousedown="mouseDownHandler"
 			ref="projectsRef"
-			class="projects overflow-y-scroll border-b-2 border-black pb-4 max-h-[70vh] sm:border-l-2 sm:border-b-0 sm:pl-4 sm:col-span-2 lg:max-h-[90vh]"
+			class="projects overflow-scroll border-b-2 border-black pb-4 sm:border-l-2 sm:border-b-0 sm:pl-4 sm:col-span-2"
 		>
-			<ul class="space-y-[var(--s1)]">
-				<li v-for="n in 5">
+			<ul class="list space-y-[var(--s1)]">
+				<li v-for="n in 3">
 					<ProjectCard />
 				</li>
 			</ul>
@@ -142,7 +142,17 @@
 		-ms-overflow-style: none;
 		scrollbar-width: none;
 		cursor: grab;
+		container-type: inline-size;
 	}
+
+	.list {
+		max-height: calc(90cqh - 8rem);
+	}
+
+	.list > li:last-child > article {
+		border-width: 0px;
+	}
+
 	main {
 		display: grid;
 		grid-template-rows: auto;

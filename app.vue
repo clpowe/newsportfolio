@@ -7,7 +7,7 @@
 
 	const parent = ref()
 
-	useResizeObserver(parent, (entries) => {
+	useResizeObserver(parent, (entries: any) => {
 		const entry = entries[0]
 		const { width } = entry.contentRect
 		if (width <= 640) menuOpen.value = false
@@ -30,7 +30,9 @@
 			</div>
 		</header>
 		<NuxtPage />
-		<footer class="text-center w-full">
+		<footer
+			class="text-center w-full h-12 grid place-content-center uppercase container border-t-2 border-gray-900"
+		>
 			<p class="mx-auto">christopher powe 2023</p>
 		</footer>
 	</div>
@@ -61,6 +63,11 @@
 		font-size: var(--s0);
 		font-size: clamp(var(--s0), 0.95rem + 0.25vw, var(--s4));
 		font-family: 'Oswald', sans-serif;
+		height: 100%;
+	}
+
+	#__nuxt {
+		height: 100%;
 	}
 
 	*,
@@ -86,16 +93,17 @@
 	.parent {
 		display: grid;
 		grid-template-rows: auto 1fr auto;
+		height: 100%;
 	}
 
 	html {
-		overflow-x: hidden;
 	}
 
 	body {
 		line-height: 1.5;
-		overflow-x: hidden;
+
 		background-color: #fff;
+		height: 100%;
 	}
 
 	h1,

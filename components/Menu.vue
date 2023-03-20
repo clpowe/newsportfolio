@@ -2,7 +2,7 @@
 	<Transition name="slide-fade">
 		<div
 			v-if="menuOpen"
-			class="menu bg-white h-full row-start-1 row-end-3 sm:border-r-2 sm:border-black p-4 flex items-start flex-col"
+			class="menu h-full bg-white row-start-1 row-end-3 sm:border-r-2 sm:border-black p-4 flex items-start flex-col"
 		>
 			<nav class="flex flex-col h-full">
 				<img src="/Portrait.svg" alt="" class="mx-auto" />
