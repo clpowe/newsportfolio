@@ -176,7 +176,7 @@
 	}
 
 	.list {
-		max-height: calc(90cqh - 8rem);
+		max-height: calc(80cqh - 8rem);
 	}
 
 	.list > li:last-child > article {

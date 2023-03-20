@@ -6,7 +6,11 @@
 				params: { project: 'gammunition' }
 			}"
 		>
-			<img src="/placeholder.png" alt="" class="w-full" />
+			<img
+				src="https://ik.imagekit.io/cpds/Portfolio/gammunitionlink_KeTH1iZuB.png?updatedAt=1649120239455"
+				alt=""
+				class="w-full"
+			/>
 		</NuxtLink>
 		<h3 class="title">Gammunition</h3>
 		<p>
