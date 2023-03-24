@@ -63,7 +63,11 @@
 		<section
 			class="flex gap-4 flex-col sm:flex-row sm:col-span-full sm:border-t-2 sm:border-black sm:pt-4 lg:flex-col lg:col-start-5 lg:row-start-1 lg:row-span-full lg:border-t-0 lg:border-l-2 lg:pl-4"
 		>
-			<article class="border-b-2 border-black pb-4 sm:border-none">
+			<article
+				class="border-b-2 border-black pb-4 sm:border-none"
+				ref="target"
+				id="about"
+			>
 				<div>
 					<h2 class="bigtext">About me</h2>
 					<p>
@@ -86,7 +90,7 @@
 					</div>
 				</div>
 			</article>
-			<article>
+			<article id="testimonials">
 				<h2 class="bigtext">Testamonials</h2>
 				<ul>
 					<li>
@@ -118,6 +122,17 @@
 				</ul>
 			</article>
 		</section>
+		<Transition name="bottomMenu">
+			<div
+				class="sm:hidden fixed bottom-0 left-0 bg-white h-10 border-t-2 border-black w-[100%] p-4 grid place-content-center"
+				v-if="!targetIsVisible"
+			>
+				<div class="flex gap-4 uppercase font-bold">
+					<a href="#about">About</a>
+					<a href="#testimonials">Testimonials</a>
+				</div>
+			</div>
+		</Transition>
 	</main>
 </template>
 
@@ -125,6 +140,9 @@
 	const showMenu = useState('showMenu')
 
 	const design = ref()
+
+	const target = ref(null)
+	const targetIsVisible = useElementVisibility(target)
 
 	const projectsRef = ref()
 	let pos = { top: 0, left: 0, x: 0, y: 0 }
@@ -176,7 +194,7 @@
 	}
 
 	.list {
-		max-height: calc(80cqh - 8rem);
+		max-height: calc(95cqh - 8rem);
 	}
 
 	.list > li:last-child > article {
@@ -194,7 +212,7 @@
 		position: absolute;
 	}
 
-	@media (min-width: 40rem) {
+	@media (min-width: 640px) {
 		main {
 			display: grid;
 			grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -232,5 +250,15 @@
    animations can be calculated correctly. */
 	.list-leave-active {
 		position: absolute;
+	}
+
+	.bottomMenu-enter-active,
+	.bottomMenu-leave-active {
+		transition: transform 0.5s ease;
+	}
+
+	.bottomMenu-enter-from,
+	.bottomMenu-leave-to {
+		transform: translateY(100%);
 	}
 </style>

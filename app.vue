@@ -10,8 +10,8 @@
 	useResizeObserver(parent, (entries: any) => {
 		const entry = entries[0]
 		const { width } = entry.contentRect
-		if (width <= 640) menuOpen.value = false
-		if (width > 640) {
+		if (width < 640) menuOpen.value = false
+		if (width >= 640) {
 			menuOpen.value = true
 		}
 	})
@@ -30,6 +30,7 @@
 			</div>
 		</header>
 		<NuxtPage />
+		<StickyMenu />
 		<footer
 			class="text-center w-full h-12 grid place-content-center uppercase container border-t-2 border-gray-900"
 		>
@@ -64,6 +65,7 @@
 		font-size: clamp(var(--s0), 0.95rem + 0.25vw, var(--s4));
 		font-family: 'Oswald', sans-serif;
 		height: 100%;
+		scroll-behavior: smooth;
 	}
 
 	#__nuxt {
@@ -167,7 +169,7 @@
 	}
 	.majortext {
 		font-family: 'Oswald';
-		font-size: var(--s5);
+		font-size: var(--s4);
 		font-weight: bold;
 		text-transform: uppercase;
 	}
