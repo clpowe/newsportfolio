@@ -173,4 +173,14 @@
 		font-weight: bold;
 		text-transform: uppercase;
 	}
+
+	.menu {
+		position: absolute;
+	}
+
+	@media (min-width: 640px) {
+		.menu {
+			position: static;
+		}
+	}
 </style>

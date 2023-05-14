@@ -4,7 +4,7 @@
 			v-if="menuOpen"
 			class="menu z-10 bg-white row-start-1 row-end-3 sm:border-r-2 sm:border-black p-4 flex items-start flex-col"
 		>
-			<nav class="flex flex-col h-full">
+			<nav class="flex flex-col max-h-screen">
 				<img src="/Portrait.svg" alt="" class="mx-auto" />
 				<div class="flex flex-col">
 					<NuxtLink to="/">Home</NuxtLink>
